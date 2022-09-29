@@ -54,6 +54,58 @@ configurations {
     dynamodb
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = appName
+            from(components.java)
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            pom {
+                name = 'Database-Test'
+                description = 'Testing utilities for databases'
+                url = 'https://github.com/wolpert/database-test'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'wolpert'
+                        name = 'Ned Wolpert'
+                        email = 'ned.wolpert@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/wolpert/database-test.git'
+                    developerConnection = 'scm:git:ssh://github.com/wolpert/database-test.git'
+                    url = 'https://github.com/wolpert/database-test/'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            name = "ossrh"
+            credentials(PasswordCredentials)
+        }
+    }
+}
+signing {
+    useGpgCmd()
+    sign publishing.publications.mavenJava
+}
 //jacocoTestReport.finalizedBy jacocoTestCoverageVerification
 test {
     useJUnitPlatform() // needed for junit5
@@ -131,7 +183,7 @@ dependencies {
     dynamodb fileTree(dir: 'lib', include: ["*.dylib", "*.so", "*.dll"])
     dynamodb "com.amazonaws:DynamoDBLocal:1.15.0"
     implementation "com.amazonaws:DynamoDBLocal:1.15.0"
-    implementation "com.amazonaws:aws-java-sdk-dynamodb:1.12.305"
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.307'
     implementation "software.amazon.awssdk:dynamodb:2.17.276"
     implementation "org.slf4j:slf4j-api:2.0.1"
     implementation("com.google.guava:guava:31.1-jre")
