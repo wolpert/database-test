@@ -183,9 +183,9 @@ dependencies {
     dynamodb fileTree(dir: 'lib', include: ["*.dylib", "*.so", "*.dll"])
     dynamodb "com.amazonaws:DynamoDBLocal:1.15.0"
     implementation "com.amazonaws:DynamoDBLocal:1.15.0"
-    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.307'
-    implementation "software.amazon.awssdk:dynamodb:2.17.276"
-    implementation "org.slf4j:slf4j-api:2.0.1"
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.328'
+    implementation 'software.amazon.awssdk:dynamodb:2.18.1'
+    implementation 'org.slf4j:slf4j-api:2.0.3'
     implementation("com.google.guava:guava:31.1-jre")
 
     implementation "com.codeheadsystems:codehead-test:1.0.1"
@@ -195,8 +195,8 @@ dependencies {
     api("org.junit.jupiter:junit-jupiter-params:5.9.0")
     api("org.mockito:mockito-junit-jupiter:4.8.0")
     api("org.mockito:mockito-core:4.8.0")
-    testImplementation("ch.qos.logback:logback-classic:1.4.1")
-    testImplementation("ch.qos.logback:logback-core:1.4.1")
+    testImplementation('ch.qos.logback:logback-classic:1.4.4')
+    testImplementation('ch.qos.logback:logback-core:1.4.4')
 }
 javadoc {
     if (JavaVersion.current().isJava9Compatible()) {
