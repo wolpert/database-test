@@ -38,10 +38,12 @@ repositories {
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     maven { url "https://oss.sonatype.org/content/repositories/releases/" }
     maven { url "https://s3-us-west-2.amazonaws.com/dynamodb-local/release/" }
+    maven { url "https://repo1.maven.org/maven2" }
 }
 
 group 'com.codeheadsystems'
-version '1.0.1-SNAPSHOT'
+//version '1.0.2-SNAPSHOT'
+version '1.0.1'
 
 
 ext {
@@ -188,7 +190,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:2.0.3'
     implementation("com.google.guava:guava:31.1-jre")
 
-    implementation "com.codeheadsystems:codehead-test:1.0.1"
+    implementation "com.codeheadsystems:codehead-test:1.0.3"
     api("org.assertj:assertj-core:3.23.1")
     api("org.junit.jupiter:junit-jupiter-engine:5.9.0")
     api("org.junit.jupiter:junit-jupiter-api:5.9.0")
