@@ -30,16 +30,6 @@ java {
     withJavadocJar()
     withSourcesJar()
 }
-repositories {
-    mavenLocal()
-    mavenCentral()
-    gradlePluginPortal()  // was jcenter() which is dying
-    google()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
-    maven { url "https://s3-us-west-2.amazonaws.com/dynamodb-local/release/" }
-    maven { url "https://repo1.maven.org/maven2" }
-}
 
 group 'com.codeheadsystems'
 version '1.0.2-SNAPSHOT'
@@ -180,25 +170,24 @@ test.doFirst {
 }
 
 dependencies {
+    implementation "com.codeheadsystems:codehead-test:1.0.4"
 
     // DynamoDB testing
     dynamodb fileTree(dir: 'lib', include: ["*.dylib", "*.so", "*.dll"])
-    dynamodb "com.amazonaws:DynamoDBLocal:1.15.0"
-    implementation "com.amazonaws:DynamoDBLocal:1.15.0"
-    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.328'
-    implementation 'software.amazon.awssdk:dynamodb:2.18.1'
-    implementation 'org.slf4j:slf4j-api:2.0.3'
-    implementation("com.google.guava:guava:31.1-jre")
+    dynamodb libs.aws.dynamodblocal
+    implementation libs.aws.dynamodblocal
+    implementation libs.software.amazon.awssdk.dynamodb
+    implementation libs.slf4j.api
+    implementation libs.guava
+    api(libs.assertj.core)
+    api(libs.junit.jupiter.engine)
+    api(libs.junit.jupiter.api)
+    api(libs.junit.jupiter.params)
+    api(libs.mockito.junit.jupiter)
+    api(libs.mockito.core)
 
-    implementation "com.codeheadsystems:codehead-test:1.0.3"
-    api("org.assertj:assertj-core:3.23.1")
-    api("org.junit.jupiter:junit-jupiter-engine:5.9.0")
-    api("org.junit.jupiter:junit-jupiter-api:5.9.0")
-    api("org.junit.jupiter:junit-jupiter-params:5.9.0")
-    api("org.mockito:mockito-junit-jupiter:4.8.0")
-    api("org.mockito:mockito-core:4.8.0")
-    testImplementation('ch.qos.logback:logback-classic:1.4.4')
-    testImplementation('ch.qos.logback:logback-core:1.4.4')
+    testImplementation libs.logback.classic
+    testImplementation libs.logback.core
 }
 javadoc {
     if (JavaVersion.current().isJava9Compatible()) {
