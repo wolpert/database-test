@@ -185,6 +185,11 @@ dependencies {
     testImplementation libs.logback.classic
     testImplementation libs.logback.core
 }
+
+generateMetadataFileForMavenJavaPublication {
+    dependsOn(":copyNativeDeps")
+}
+
 javadoc {
     if (JavaVersion.current().isJava9Compatible()) {
         options.addBooleanOption('html5', true)
