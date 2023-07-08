@@ -19,6 +19,7 @@ buildscript {
 }
 plugins {
     id 'java-library'
+    id 'jvm-test-suite'
     id 'jacoco'
     id 'idea'
     id 'signing'
@@ -40,10 +41,24 @@ ext {
     appName = "database-test"
 }
 
+base {
+    archivesName = "${appName}"
+    version = "${version}"
+}
 configurations {
-    project.archivesBaseName = "${appName}"
-    jar.archiveBaseName = "${appName}"
     dynamodb
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+            dependencies {
+                implementation libs.logback.classic
+                implementation libs.logback.core
+            }
+        }
+    }
 }
 
 publishing {
@@ -181,9 +196,6 @@ dependencies {
     api(libs.junit.jupiter.params)
     api(libs.mockito.junit.jupiter)
     api(libs.mockito.core)
-
-    testImplementation libs.logback.classic
-    testImplementation libs.logback.core
 }
 
 generateMetadataFileForMavenJavaPublication {
