@@ -32,15 +32,32 @@ public abstract class DataStoreExtension implements BeforeEachCallback {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DataStoreExtension.class);
 
+  /**
+   * The Namespace.
+   */
   protected final ExtensionContext.Namespace namespace;
 
+  /**
+   * Instantiates a new Data store extension.
+   */
   protected DataStoreExtension() {
     namespace = ExtensionContext.Namespace.create(namespaceClass());
     LOGGER.info("DataStoreExtension({})", namespace);
   }
 
+  /**
+   * Namespace class class.
+   *
+   * @return the class
+   */
   protected abstract Class<?> namespaceClass();
 
+  /**
+   * With store.
+   *
+   * @param context  the context
+   * @param consumer the consumer
+   */
   protected void withStore(final ExtensionContext context,
                            final Consumer<ExtensionContext.Store> consumer) {
     consumer.accept(context.getStore(namespace));
@@ -59,6 +76,13 @@ public abstract class DataStoreExtension implements BeforeEachCallback {
     });
   }
 
+  /**
+   * Sets value for field.
+   *
+   * @param store the store
+   * @param o     the o
+   * @param field the field
+   */
   protected void setValueForField(final ExtensionContext.Store store,
                                   final Object o,
                                   final Field field) {
