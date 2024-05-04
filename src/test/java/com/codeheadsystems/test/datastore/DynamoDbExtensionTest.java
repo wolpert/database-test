@@ -35,11 +35,11 @@ class DynamoDbExtensionTest {
   public static final String RANGE = "aRange";
   public static final String HASH = "aHash";
   @DataStore private DynamoDBMapper mapper;
-  @DataStore private AmazonDynamoDB amazonDynamoDB;
+  @DataStore private AmazonDynamoDB amazonDynamoDb;
 
   @BeforeEach
   void setup() {
-    amazonDynamoDB.createTable(
+    amazonDynamoDb.createTable(
         mapper.generateCreateTableRequest(Entry.class)
             .withBillingMode(BillingMode.PAY_PER_REQUEST));
   }
@@ -47,12 +47,12 @@ class DynamoDbExtensionTest {
   @AfterEach
   void tearDown() {
     // force the table empty
-    amazonDynamoDB.deleteTable(mapper.generateDeleteTableRequest(Entry.class));
+    amazonDynamoDb.deleteTable(mapper.generateDeleteTableRequest(Entry.class));
   }
 
   @Test
   void testClient() {
-    assertThat(amazonDynamoDB)
+    assertThat(amazonDynamoDb)
         .isNotNull();
   }
 
