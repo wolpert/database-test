@@ -63,14 +63,6 @@ publishing {
         create<MavenPublication>("mavenJava") {
             artifactId = "database-test"
             from(components["java"])
-            versionMapping {
-                usage("java-api") {
-                    fromResolutionOf("runtimeClasspath")
-                }
-                usage("java-runtime") {
-                    fromResolutionResult()
-                }
-            }
             pom {
                 name = "Database-Test"
                 description = "Testing utilities"
