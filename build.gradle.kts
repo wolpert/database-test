@@ -5,6 +5,7 @@ plugins {
     `maven-publish`
     signing
     checkstyle
+    id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
 }
 
 repositories {
@@ -55,7 +56,7 @@ java {
 }
 
 group = "com.codeheadsystems"
-version = "1.0.3"
+version = "1.0.5-SNAPSHOT"
 
 publishing {
     publications {
@@ -105,6 +106,11 @@ publishing {
             credentials(PasswordCredentials::class)
         }
     }
+}// gradle publishToSonatype closeAndReleaseSonatypeStagingRepository
+nexusPublishing {
+    repositories {
+        sonatype()
+    }
 }
 signing {
     useGpgCmd()
@@ -115,11 +121,9 @@ tasks.javadoc {
         (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
     }
 }
-
 tasks.publish {
     dependsOn("copyNativeDeps")
 }
-
 
 tasks.getByName("generateMetadataFileForMavenJavaPublication") {
     dependsOn("copyNativeDeps")
