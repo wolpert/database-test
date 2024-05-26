@@ -49,14 +49,14 @@ tasks.named<Test>("test") {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(11)
+        languageVersion = JavaLanguageVersion.of(17)
     }
     withJavadocJar()
     withSourcesJar()
 }
 
 group = "com.codeheadsystems"
-version = "1.0.6-SNAPSHOT"
+version = "1.0.7-SNAPSHOT"
 
 publishing {
     publications {
