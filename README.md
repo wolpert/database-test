@@ -11,4 +11,9 @@ with test containers
 
 ## Version details
 
-As of version 1.0.6, requires JDK 17.
+Requires JDK 17.
+
+
+| Library       | Purpose                           | Version                                                                                   |
+|---------------|-----------------------------------|-------------------------------------------------------------------------------------------|
+| database-test | Core Library                      | ![feature-flag](https://img.shields.io/maven-central/v/com.codeheadsystems/database-test) |
