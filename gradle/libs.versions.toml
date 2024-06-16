@@ -6,7 +6,6 @@ assertj = "3.26.0"
 aws-dynamodblocal = "2.5.1"
 awsSDK2 = "2.26.3"
 codehead-test = "1.0.8"
-guava = "33.2.1-jre"
 junit-jupiter = "5.10.2"
 mokito = '5.12.0'
 logback = '1.5.6'
@@ -18,7 +17,6 @@ aws-dynamodblocal = { module = "com.amazonaws:DynamoDBLocal", version.ref = "aws
 aws-sdk2-ddb = { module = "software.amazon.awssdk:dynamodb", version.ref = "awsSDK2" }
 aws-sdk2-bom = { module = "software.amazon.awssdk:bom", version.ref = "awsSDK2" }
 codehead-test = { module = "com.codeheadsystems:codehead-test", version.ref = "codehead-test" }
-guava = { module = "com.google.guava:guava", version.ref = "guava" }
 
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }

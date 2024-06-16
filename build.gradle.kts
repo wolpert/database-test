@@ -29,8 +29,6 @@ dependencies {
     implementation(libs.aws.dynamodblocal)
     implementation(libs.aws.sdk2.ddb)
     implementation(libs.slf4j.api)
-    implementation(libs.slf4j.api)
-    implementation(libs.guava)
     api(libs.bundles.testing)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation(libs.bundles.logback)
