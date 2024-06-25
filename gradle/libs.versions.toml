@@ -3,8 +3,8 @@
 
 [versions]
 assertj = "3.26.0"
-aws-dynamodblocal = "2.5.1"
-awsSDK2 = "2.26.4"
+aws-dynamodblocal = "2.5.2"
+awsSDK2 = "2.26.8"
 codehead-test = "1.0.9"
 junit-jupiter = "5.10.2"
 mokito = '5.12.0'
