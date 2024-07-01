@@ -1,4 +1,4 @@
-
+// gradle clean build test publishToSonatype closeAndReleaseSonatypeStagingRepository
 
 plugins {
     `java-library`
