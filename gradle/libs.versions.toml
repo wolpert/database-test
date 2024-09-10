@@ -4,11 +4,11 @@
 [versions]
 assertj = "3.26.3"
 aws-dynamodblocal = "2.5.2"
-awsSDK2 = "2.27.17"
+awsSDK2 = "2.27.22"
 codehead-test = "1.0.9"
 junit-jupiter = "5.11.0"
 mokito = '5.13.0'
-logback = '1.5.7'
+logback = '1.5.8'
 slf4j = '2.0.16'
 
 [libraries]
