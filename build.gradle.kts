@@ -54,7 +54,7 @@ java {
 }
 
 group = "com.codeheadsystems"
-version = "1.0.8-SNAPSHOT"
+version = "1.0.9-SNAPSHOT"
 
 publishing {
     publications {
