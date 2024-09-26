@@ -15,7 +15,6 @@ repositories {
     google()
     maven("https://oss.sonatype.org/content/repositories/snapshots/")
     maven("https://oss.sonatype.org/content/repositories/releases/")
-    maven("https://s3-us-west-2.amazonaws.com/dynamodb-local/release/")
 }
 
 val dynamodb by configurations.creating
