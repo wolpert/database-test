@@ -3,12 +3,12 @@
 
 [versions]
 assertj = "3.26.3"
-aws-dynamodblocal = "2.5.2"
-awsSDK2 = "2.28.27"
+aws-dynamodblocal = "2.5.3"
+awsSDK2 = "2.29.7"
 codehead-test = "1.0.10"
 junit-jupiter = "5.11.3"
 mokito = '5.14.2'
-logback = '1.5.11'
+logback = '1.5.12'
 slf4j = '2.0.16'
 
 [libraries]
