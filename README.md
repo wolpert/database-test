@@ -16,6 +16,6 @@ Requires JDK 17.
 
 | Library       | Purpose                           | Version                                                                                   |
 |---------------|-----------------------------------|-------------------------------------------------------------------------------------------|
-| database-test | Core Library                      | ![feature-flag](https://img.shields.io/maven-central/v/com.codeheadsystems/database-test) |
+| database-test | Core Library                      | ![database-test](https://img.shields.io/maven-central/v/com.codeheadsystems/database-test) |
 
 - test
