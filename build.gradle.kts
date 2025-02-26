@@ -100,10 +100,3 @@ tasks.javadoc {
         (options as StandardJavadocDocletOptions).addBooleanOption("html5", true)
     }
 }
-tasks.publish {
-    dependsOn("copyNativeDeps")
-}
-
-tasks.getByName("generateMetadataFileForMavenJavaPublication") {
-    dependsOn("copyNativeDeps")
-}
