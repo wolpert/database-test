@@ -5,7 +5,7 @@
 assertj = "3.27.3"
 aws-dynamodblocal = "2.5.4"
 awsSDK2 = "2.30.26"
-codehead-test = "1.0.11"
+codehead-test = "1.0.12"
 junit-jupiter = "5.12.0"
 mokito = '5.15.2'
 logback = '1.5.16'
