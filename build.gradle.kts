@@ -17,13 +17,9 @@ repositories {
     maven("https://oss.sonatype.org/content/repositories/releases/")
 }
 
-val dynamodb by configurations.creating
-
 dependencies {
     implementation(platform(libs.aws.sdk2.bom))
     implementation("software.amazon.awssdk:dynamodb")
-    dynamodb(fileTree("lib") { include(listOf("*.dylib", "*.so", "*.dll")) })
-    dynamodb(libs.aws.dynamodblocal)
     implementation(libs.codehead.test)
     implementation(libs.aws.dynamodblocal)
     implementation(libs.aws.sdk2.ddb)
@@ -32,14 +28,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation(libs.bundles.logback)
 }
-tasks.register("copyNativeDeps", Copy::class.java) {
-    from(configurations.runtimeClasspath.get() + configurations.testRuntimeClasspath.get()) {
-        include("*.dll", "*.dylib", "*.so")
-    }.into("build/libs")
-}
 tasks.named<Test>("test") {
-    dependsOn("copyNativeDeps")
-    systemProperty("java.library.path", "build/libs")
     useJUnitPlatform()
 }
 
@@ -53,7 +42,7 @@ java {
 }
 
 group = "com.codeheadsystems"
-version = "1.0.10"
+version = "1.0.12"
 //version = "1.0.9-SNAPSHOT"
 
 publishing {
