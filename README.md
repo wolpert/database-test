@@ -1,5 +1,8 @@
 # Database Test
 
+# NOTE: ARCHIVED AND THIS IS MOVED TO https://github.com/wolpert/libraries
+
+
 ## Description
 
 Provides a mechanism to setup databases for test requirements.
